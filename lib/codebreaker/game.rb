@@ -28,7 +28,7 @@ module Codebreaker
       assumption.each_char.with_index { |char, i| output << "-" if @secret.match char }
 
       @attempts -= 1
-      return "Game over" if output.join != "++++" && @attempts < 1
+      return "Game over" if @attempts < 1
 
       output.join
     end
