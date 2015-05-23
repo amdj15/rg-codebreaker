@@ -24,7 +24,7 @@ module Codebreaker
       end
 
       it "must be empty when doesnt match" do
-        expect(subject.guess "1212" ).to be_empty
+        expect(subject.guess "1212").to be_empty
       end
 
       it "must be ++- when assumption 2 numbrs match exect and 1 position missed" do

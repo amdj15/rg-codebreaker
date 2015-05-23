@@ -18,6 +18,7 @@ Or install it yourself as:
     $ gem install codebreaker
 
 ## Usage
+Example of console game:
 
 ```ruby
 require "bundler/setup"
