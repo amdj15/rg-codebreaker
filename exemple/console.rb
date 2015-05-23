@@ -1,25 +1,3 @@
-# Codebreaker
-Codebreaker homework
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'library', :git => "https://github.com/amdj15/rg-codebreaker"
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install codebreaker
-
-## Usage
-
-```ruby
 require "bundler/setup"
 require "codebreaker"
 
@@ -62,4 +40,3 @@ loop do
     break
   end
 end
-```
