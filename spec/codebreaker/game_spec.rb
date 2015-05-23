@@ -116,7 +116,7 @@ module Codebreaker
       it "have to open file for read and write data" do
         expect(File).to receive(:open).with(kind_of(String)).once
         expect(File).to receive(:open).with(kind_of(String), "w").once
-        expect(Marshal).to receive(:load) .and_return(Hash.new)
+        expect(Marshal).to receive(:load).and_return(Hash.new)
 
         subject.save "tester"
       end
