@@ -1,0 +1,48 @@
+
+Codebreaker::Game
+  #start
+    generates secret code
+    saves 4 numbers secret code
+    saves secret code with numbers from 1 to 6
+  #guess
+    decrement number of available attempts
+    increment number of turns
+    should be ++ when code is 1335 and secret is 1134
+    should be +- when code is 1325 and secret is 1134
+    should be + when code is 3333 and secret is 1134
+    should be ++- when code is 3461 and secret is 3456
+    should be ++ when code is 1124 and secret is 1226
+    should be ++ when code is 1654 and secret is 1234
+    should be ---- when code is 4321 and secret is 1234
+    should be - when code is 1456 and secret is 2242
+    should be +--- when code is 1423 and secret is 1234
+    should be ++ when code is 3232 and secret is 1234
+    should be +- when code is 3224 and secret is 5314
+    should be --- when code is 3121 and secret is 1213
+    should be ++- when code is 4555 and secret is 5455
+    should be - when code is 4251 and secret is 3346
+    should be ++ when code is 1355 and secret is 1256
+    should be +-- when code is 1356 and secret is 1265
+    should be ++ when code is 1356 and secret is 1266
+    should be + when code is 3523 and secret is 1122
+    should be --- when code is 2113 and secret is 1234
+    should be  when code is 2612 and secret is 5435
+    Invalid assemption
+      have to raise error
+    Game over:
+      win
+        should eq "++++"
+      last attempt
+        "Game over" if miss
+        ++++ if guess and win
+  #hint
+    must return one of the number of secret code
+    have to return unshowen number
+    all hints are used
+      should be nil
+  #save
+    have to open file for read and write data
+
+Finished in 0.02641 seconds (files took 0.12062 seconds to load)
+33 examples, 0 failures
+

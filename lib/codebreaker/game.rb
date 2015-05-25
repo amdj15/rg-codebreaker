@@ -24,7 +24,8 @@ module Codebreaker
       end
 
       output = [];
-      assumption.each_char.with_index { |char, i| output << "+" &&  assumption.tr!(char, "") if @secret[i] == char }
+      assumption.each_char.with_index { |char, i| output << "+" && assumption.tr!(char, "") if @secret[i] == char }
+      assumption = assumption.split("").uniq.join
       assumption.each_char.with_index { |char, i| output << "-" if @secret.match char }
 
       @attempts -= 1

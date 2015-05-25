@@ -17,26 +17,22 @@ module Codebreaker
     end
 
     describe "#guess" do
-      let(:win_combination) { "3456" }
-
-      before do
-        subject.secret = win_combination
-      end
-
-      it "must be empty when doesnt match" do
-        expect(subject.guess "1212").to be_empty
-      end
-
-      it "must be ++- when assumption 2 numbrs match exect and 1 position missed" do
-        expect(subject.guess "3461").to eq("++-")
-      end
-
       it "decrement number of available attempts" do
         expect{subject.guess "3461"}.to change{subject.attempts}.by(-1)
       end
 
       it "increment number of turns" do
         expect{subject.guess "3461"}.to change{subject.instance_variable_get(:@turns)}.by(1)
+      end
+
+
+      cases =[["1134", "1335", "++"], ["1134", "1325", "+-"], ["1134", "3333", "+"], ["3456", "3461", "++-"], ["1226", "1124", "++"], ["1234", "1654", "++"], ["1234", "4321", "----"], ["2242", "1456", "-"], ["1234", "1423", "+---"], ["1234", "3232", "++"], ["5314", "3224", "+-"], ["1213", "3121", "---"], ["5455", "4555", "++-"], ["3346", "4251", "-"], ["1256", "1355", "++"], ["1265", "1356", "+--"], ["1266", "1356", "++"], ["1122", "3523", "+"], ["1234", "2113", "---"], ["5435", "2612", ""]]
+
+      cases.each do |kase|
+        it "should be #{kase[2]} when code is #{kase[1]} and secret is #{kase[0]}" do
+          subject.secret = kase[0]
+          expect(subject.guess kase[1]).to eq(kase[2])
+        end
       end
 
       context "Invalid assemption" do
@@ -53,25 +49,13 @@ module Codebreaker
         end
       end
 
-      context "combination when numbers are repeated:" do
-        before do
-          subject.secret = "1134"
-        end
-
-        it "should be ++ when 1335 and secret 1134" do
-          expect(subject.guess "1335").to eq "++"
-        end
-
-        it "should be +- when 1325 and secret 1134" do
-          expect(subject.guess "1325").to eq("+-")
-        end
-
-         it "should be + when 3333 and secret 1134" do
-          expect(subject.guess "3333").to eq("+")
-        end
-      end
-
       context "Game over:" do
+         let(:win_combination) { "3456" }
+
+        before do
+          subject.secret = win_combination
+        end
+
         context "win" do
           it do
             expect(subject.guess win_combination).to eq("++++")
