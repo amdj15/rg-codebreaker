@@ -23,10 +23,26 @@ module Codebreaker
         return "++++"
       end
 
-      output = [];
-      assumption.each_char.with_index { |char, i| output << "+" && assumption.tr!(char, "") if @secret[i] == char }
-      assumption = assumption.split("").uniq.join
-      assumption.each_char.with_index { |char, i| output << "-" if @secret.match char }
+      output = []
+      secret = @secret
+
+      assumption.each_char.with_index do |char, i|
+        if secret[i] == char
+          output << "+"
+          secret[i] = "_"
+          assumption[i] = "_"
+        end
+      end
+
+      secret.tr!("_", "")
+      assumption.tr!("_", "")
+
+      assumption.split("").each.with_index do |char, i|
+        if secret.match char
+          secret[secret.index(char)] = '_'
+          output << "-"
+        end
+      end
 
       @attempts -= 1
       return "Game over" if @attempts < 1
