@@ -73,7 +73,9 @@ module Codebreaker
         turns: @turns
       }
 
-      File.open(path, "w") { |file| Marshal.dump(history, file) }
+      f = File.open(path, "w")
+      Marshal.dump(history, f)
+      f.close
     end
 
     private
