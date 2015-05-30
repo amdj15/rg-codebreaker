@@ -24,7 +24,7 @@ module Codebreaker
       end
 
       output = []
-      secret = @secret
+      secret = @secret.clone
 
       assumption.each_char.with_index do |char, i|
         if secret[i] == char
