@@ -13,10 +13,6 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install codebreaker
-
 ## Usage
 Example of console game:
 
