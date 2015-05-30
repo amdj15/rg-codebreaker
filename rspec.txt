@@ -18,8 +18,8 @@ Codebreaker::Game
     should be +--- when code is 1423 and secret is 1234
     should be ++ when code is 3232 and secret is 1234
     should be +- when code is 3224 and secret is 5314
-    should be --- when code is 3121 and secret is 1213
-    should be ++- when code is 4555 and secret is 5455
+    should be ---- when code is 3121 and secret is 1213
+    should be ++-- when code is 4555 and secret is 5455
     should be - when code is 4251 and secret is 3346
     should be ++ when code is 1355 and secret is 1256
     should be +-- when code is 1356 and secret is 1265
@@ -28,8 +28,9 @@ Codebreaker::Game
     should be --- when code is 2113 and secret is 1234
     should be  when code is 2612 and secret is 5435
     should be +++ when code is 3355 and secret is 3335
-    should be +- when code is 3553 and secret is 3335
+    should be +-- when code is 3553 and secret is 3335
     should be ++ when code is 3555 and secret is 3335
+    should be +- when code is 1335 and secret is 3346
     Invalid assemption
       have to raise error
     Game over:
@@ -46,6 +47,6 @@ Codebreaker::Game
   #save
     have to open file for read and write data
 
-Finished in 0.0276 seconds (files took 0.1252 seconds to load)
-36 examples, 0 failures
+Finished in 0.03009 seconds (files took 0.10709 seconds to load)
+37 examples, 0 failures
 
