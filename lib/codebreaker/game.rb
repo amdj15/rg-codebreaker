@@ -61,26 +61,34 @@ module Codebreaker
     def save name, path = ''
       path = path.gsub(/\/+$/, "") << (path.size > 0 ? "/" : "") << 'data'
 
-      begin
-        history = Marshal.load(File.open(path));
-      rescue
-        history = Hash.new
-      end
+      history = load path
 
-      history[name] = {
+      history << {
         win: @win,
         name: name,
         turns: @turns
       }
 
-      f = File.open(path, "w")
-      Marshal.dump(history, f)
-      f.close
+      write_to_file history, path
+    end
+
+    def load path
+      begin
+        Marshal.load(File.open(path));
+      rescue
+        Array.new
+      end
     end
 
     private
     def valid? code
       code.match(/^[1-6]{4}$/) ? true : false
+    end
+
+    def write_to_file history, path
+      f = File.open(path, "w")
+      Marshal.dump(history, f)
+      f.close
     end
   end
 end

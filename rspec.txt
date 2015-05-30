@@ -45,8 +45,9 @@ Codebreaker::Game
     all hints are used
       should be nil
   #save
-    have to open file for read and write data
+    have to load current history
+    have to save history to file
 
-Finished in 0.03009 seconds (files took 0.10709 seconds to load)
-37 examples, 0 failures
+Finished in 0.02874 seconds (files took 0.11568 seconds to load)
+38 examples, 0 failures
 

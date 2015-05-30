@@ -121,11 +121,13 @@ module Codebreaker
     end
 
     describe "#save" do
-      it "have to open file for read and write data" do
-        expect(File).to receive(:open).with(kind_of(String)).once
-        expect(File).to receive(:open).with(kind_of(String), "w").once
-        expect(Marshal).to receive(:load).and_return(Hash.new)
+      it "have to load current history" do
+        expect(subject).to receive(:load).with(kind_of(String)).and_return(Array.new).once
+        subject.save "tester"
+      end
 
+      it "have to save history to file" do
+        expect(subject).to receive(:write_to_file).with(kind_of(Array), kind_of(String)).once
         subject.save "tester"
       end
     end
