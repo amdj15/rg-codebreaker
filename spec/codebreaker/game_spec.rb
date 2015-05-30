@@ -122,7 +122,7 @@ module Codebreaker
 
     describe "#save" do
       it "have to load current history" do
-        expect(subject).to receive(:load).with(kind_of(String)).and_return(Array.new).once
+        expect(subject.class).to receive(:load).with(kind_of(String)).and_return(Array.new).once
         subject.save "tester"
       end
 

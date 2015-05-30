@@ -61,7 +61,7 @@ module Codebreaker
     def save name, path = ''
       path = path.gsub(/\/+$/, "") << (path.size > 0 ? "/" : "") << 'data'
 
-      history = load path
+      history = self.class.load path
 
       history << {
         win: @win,
@@ -72,7 +72,7 @@ module Codebreaker
       write_to_file history, path
     end
 
-    def load path
+    def self.load path
       begin
         Marshal.load(File.open(path));
       rescue

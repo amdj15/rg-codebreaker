@@ -48,6 +48,6 @@ Codebreaker::Game
     have to load current history
     have to save history to file
 
-Finished in 0.02874 seconds (files took 0.11568 seconds to load)
+Finished in 0.02898 seconds (files took 0.10889 seconds to load)
 38 examples, 0 failures
 
