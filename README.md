@@ -6,7 +6,7 @@ Codebreaker homework
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'library', :git => "https://github.com/amdj15/rg-codebreaker"
+gem 'codebreaker', :git => "https://github.com/amdj15/rg-codebreaker"
 ```
 
 And then execute:
