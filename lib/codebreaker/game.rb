@@ -81,8 +81,12 @@ module Codebreaker
       end
     end
 
-    def win?
+    def won?
       @win
+    end
+
+    def lost?
+      @win || @turns >= @attempts
     end
 
     private
