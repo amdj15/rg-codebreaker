@@ -81,6 +81,10 @@ module Codebreaker
       end
     end
 
+    def win?
+      @win
+    end
+
     private
     def valid? code
       code.match(/^[1-6]{4}$/) ? true : false
