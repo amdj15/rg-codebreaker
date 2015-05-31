@@ -31,6 +31,7 @@ Codebreaker::Game
     should be +-- when code is 3553 and secret is 3335
     should be ++ when code is 3555 and secret is 3335
     should be +- when code is 1335 and secret is 3346
+    should be ---- when code is 1626 and secret is 6162
     Invalid assemption
       have to raise error
     Game over:
@@ -48,6 +49,6 @@ Codebreaker::Game
     have to load current history
     have to save history to file
 
-Finished in 0.02898 seconds (files took 0.10889 seconds to load)
-38 examples, 0 failures
+Finished in 0.05475 seconds (files took 0.69813 seconds to load)
+39 examples, 0 failures
 
