@@ -1,6 +1,7 @@
 module Codebreaker
   class Game
     attr_accessor :secret, :attempts
+    attr_reader :turns
 
     def initialize attempts = 5
       start attempts
