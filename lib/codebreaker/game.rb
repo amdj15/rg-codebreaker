@@ -2,12 +2,14 @@ module Codebreaker
   class Game
     attr_accessor :secret, :attempts_left
 
+    SIZE = 4
+
     def initialize attempts = 5
       start attempts
     end
 
     def start attempts
-      @secret = 4.times.map { Random.new.rand(1..6) }.join
+      @secret = SIZE.times.map { Random.new.rand(1..6) }.join
       @attempts_left = attempts
       @max_attempts = attempts
       @allowed_hints = @secret.split("")
@@ -69,7 +71,8 @@ module Codebreaker
       history << {
         win: @win,
         name: name,
-        attempts: @max_attempts - @attempts_left
+        attempts: @max_attempts - @attempts_left,
+        hints_used: SIZE - @allowed_hints.size
       }
 
       write_to_file history, path
