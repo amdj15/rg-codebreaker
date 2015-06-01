@@ -57,6 +57,10 @@ module Codebreaker
       return hint
     end
 
+    def hints?
+      @allowed_hints.size > 0
+    end
+
     def save name, path = ''
       path = path.gsub(/\/+$/, "") << (path.size > 0 ? "/" : "") << 'data'
 
