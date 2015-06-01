@@ -1,7 +1,6 @@
 module Codebreaker
   class Game
-    attr_accessor :secret, :attempts
-    attr_reader :turns
+    attr_accessor :secret, :attempts_left
 
     def initialize attempts = 5
       start attempts
@@ -9,16 +8,15 @@ module Codebreaker
 
     def start attempts
       @secret = 4.times.map { Random.new.rand(1..6) }.join
-      @attempts = attempts
+      @attempts_left = attempts
+      @max_attempts = attempts
       @allowed_hints = @secret.split("")
       @win = false;
-      @turns = 0;
     end
 
     def guess assumption
       raise "Validation error" unless valid? assumption
 
-      @turns += 1
       if assumption == @secret
         @win = true
         return "++++"
@@ -45,8 +43,8 @@ module Codebreaker
         end
       end
 
-      @attempts -= 1
-      return "Game over" if @attempts < 1
+      @attempts_left -= 1
+      return "Game over" if @attempts_left < 1
 
       output.join
     end
@@ -67,7 +65,7 @@ module Codebreaker
       history << {
         win: @win,
         name: name,
-        turns: @turns
+        turns: @max_attempts - @attempts_left
       }
 
       write_to_file history, path
@@ -86,7 +84,7 @@ module Codebreaker
     end
 
     def lost?
-      @win || @turns >= @attempts
+      @win ||  @attempts_left <= 0
     end
 
     private

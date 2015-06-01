@@ -6,7 +6,6 @@ Codebreaker::Game
     saves secret code with numbers from 1 to 6
   #guess
     decrement number of available attempts
-    increment number of turns
     should be ++ when code is 1335 and secret is 1134
     should be +- when code is 1325 and secret is 1134
     should be + when code is 3333 and secret is 1134
@@ -49,6 +48,6 @@ Codebreaker::Game
     have to load current history
     have to save history to file
 
-Finished in 0.05475 seconds (files took 0.69813 seconds to load)
-39 examples, 0 failures
+Finished in 0.02897 seconds (files took 0.10601 seconds to load)
+38 examples, 0 failures
 

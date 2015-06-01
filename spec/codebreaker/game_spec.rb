@@ -18,11 +18,7 @@ module Codebreaker
 
     describe "#guess" do
       it "decrement number of available attempts" do
-        expect{subject.guess "3461"}.to change{subject.attempts}.by(-1)
-      end
-
-      it "increment number of turns" do
-        expect{subject.guess "3461"}.to change{subject.instance_variable_get(:@turns)}.by(1)
+        expect{subject.guess "3461"}.to change{subject.attempts_left}.by(-1)
       end
 
       cases = [
@@ -89,7 +85,7 @@ module Codebreaker
 
         context "last attempt" do
           before do
-            subject.attempts = 1;
+            subject.attempts_left = 1;
           end
 
           it "\"Game over\" if miss" do
