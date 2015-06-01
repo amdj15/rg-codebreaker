@@ -69,7 +69,7 @@ module Codebreaker
       history << {
         win: @win,
         name: name,
-        turns: @max_attempts - @attempts_left
+        attempts: @max_attempts - @attempts_left
       }
 
       write_to_file history, path
